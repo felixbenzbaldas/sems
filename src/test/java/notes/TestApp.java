@@ -24,7 +24,7 @@ public class TestApp {
 	
 	@Test
 	public void testSave() throws Exception {
-		String randomName = "testFile-" + Math.random() + ".ser";
+		String randomName = "src/test/resources/testData/testFile-" + Math.random() + ".ser";
 		save(randomName);
 		assertTrue(new File(randomName).exists());
 	}
