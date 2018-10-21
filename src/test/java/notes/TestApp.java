@@ -24,8 +24,9 @@ public class TestApp {
 	
 	@Test
 	public void testSave() throws Exception {
-		save();
-		assertTrue(new File("testFile.ser").exists());
+		String randomName = "testFile-" + Math.random() + ".ser";
+		save(randomName);
+		assertTrue(new File(randomName).exists());
 	}
 	
 	private List<String> data = new LinkedList<String>();
