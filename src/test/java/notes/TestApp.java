@@ -3,7 +3,6 @@ package notes;
 import static org.junit.Assert.assertArrayEquals;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -29,7 +28,6 @@ public class TestApp {
 	public String[] getAllNotes() throws IOException, ClassNotFoundException {
 		FileInputStream fin = new FileInputStream("testFile.ser");
 		ObjectInputStream ois = new ObjectInputStream(fin);
-		ois.readObject();
-		return new String[] { "Test-Notiz" };
+		return new String[] { (String) ois.readObject() };
 	}
 }
