@@ -1,6 +1,6 @@
 package notes;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -17,7 +17,7 @@ public class TestApp {
 	@Test
 	public void testCreateNote() throws Exception {
 		createNote("Test-Notiz");
-		assertArrayEquals(new String[] { "Test-Notiz" }, getAllNotes());
+		assertEquals("Test-Notiz", getAllNotes().get(0));
 	}
 	
 	private List<String> data = new LinkedList<String>();
@@ -27,8 +27,8 @@ public class TestApp {
 
 	}
 
-	public String[] getAllNotes() throws IOException, ClassNotFoundException {
-		return new String[] { data.get(0) };
+	public List<String> getAllNotes() throws IOException, ClassNotFoundException {
+		return data;
 	}
 	
 	public void save() throws Exception{
