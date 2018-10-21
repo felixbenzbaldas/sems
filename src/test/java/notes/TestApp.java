@@ -32,18 +32,21 @@ public class TestApp {
 
 	public void createNote(String note) throws IOException {
 		data.add(note);
-
 	}
 
 	public List<String> getAllNotes() throws IOException, ClassNotFoundException {
 		return data;
 	}
-	
-	public void save() throws Exception{
-		FileOutputStream fout = new FileOutputStream("testFile.ser");
+
+	public void save(String path) throws Exception{
+		FileOutputStream fout = new FileOutputStream(path);
 		ObjectOutputStream oos = new ObjectOutputStream(fout);
 		oos.writeObject(data);
 		oos.close();
+	}
+	
+	public void save() throws Exception{
+		save("testFile.ser");
 	}
 	
 	public void load() throws Exception {
