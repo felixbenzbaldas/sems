@@ -1,7 +1,9 @@
 package notes;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -18,6 +20,12 @@ public class TestApp {
 	public void testCreateNote() throws Exception {
 		createNote("Test-Notiz");
 		assertEquals("Test-Notiz", getAllNotes().get(0));
+	}
+	
+	@Test
+	public void testSave() throws Exception {
+		save();
+		assertTrue(new File("testFile.ser").exists());
 	}
 	
 	private List<String> data = new LinkedList<String>();
