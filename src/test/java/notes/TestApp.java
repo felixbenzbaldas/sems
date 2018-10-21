@@ -2,12 +2,9 @@ package notes;
 
 import static org.junit.Assert.assertArrayEquals;
 
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,6 +21,8 @@ public class TestApp {
 	private List<String> data = new LinkedList<String>();
 
 	public void createNote(String note) throws IOException {
+		data.add(note);
+
 		FileOutputStream fout = new FileOutputStream("testFile.ser");
 		ObjectOutputStream oos = new ObjectOutputStream(fout);
 		oos.writeObject(note);
@@ -31,9 +30,10 @@ public class TestApp {
 	}
 
 	public String[] getAllNotes() throws IOException, ClassNotFoundException {
-		FileInputStream fin = new FileInputStream("testFile.ser");
-		ObjectInputStream ois = new ObjectInputStream(fin);
-		return new String[] { (String) ois.readObject() };
+		return new String[] { data.get(0) };
+//		FileInputStream fin = new FileInputStream("testFile.ser");
+//		ObjectInputStream ois = new ObjectInputStream(fin);
+//		return new String[] { (String) ois.readObject() };
 	}
 	
 	public void save() {
