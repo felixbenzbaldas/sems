@@ -7,6 +7,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -17,6 +20,8 @@ public class TestApp {
 		createNote("Test-Notiz");
 		assertArrayEquals(new String[] { "Test-Notiz" }, getAllNotes());
 	}
+	
+	private List<String> data = new LinkedList<String>();
 
 	public void createNote(String note) throws IOException {
 		FileOutputStream fout = new FileOutputStream("testFile.ser");
@@ -30,4 +35,13 @@ public class TestApp {
 		ObjectInputStream ois = new ObjectInputStream(fin);
 		return new String[] { (String) ois.readObject() };
 	}
+	
+	public void save() {
+		
+	}
+	
+	public void load() {
+		
+	}
+	
 }
