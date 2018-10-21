@@ -2,7 +2,6 @@ package notes;
 
 import static org.junit.Assert.assertArrayEquals;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -21,6 +20,7 @@ public class TestApp {
 		FileOutputStream fout = new FileOutputStream("testFile.ser");
 		ObjectOutputStream oos = new ObjectOutputStream(fout);
 		oos.writeObject(note);
+		oos.close();
 	}
 
 	public String[] getAllNotes() {
