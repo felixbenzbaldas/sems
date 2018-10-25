@@ -42,8 +42,6 @@ public class TestApp {
 		assertEquals("test", app2.getAllNotes().get(0));
 	}
 	
-	
-	
 	private List<String> data = new LinkedList<String>();
 
 	public void createNote(String note) throws IOException {
@@ -69,6 +67,7 @@ public class TestApp {
 		FileInputStream fin = new FileInputStream(path);
 		ObjectInputStream ois = new ObjectInputStream(fin);
 		data = (List<String>) ois.readObject();
+		ois.close();
 	}
 
 	public void load() throws Exception {
