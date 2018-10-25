@@ -33,9 +33,13 @@ public class TestApp {
 	@Test
 	public void testLoad() throws Exception {
 		String path = "src/test/resources/testData/testFile-" + Math.random() + ".ser";
-		new TestApp().save(path);
-		TestApp app = new TestApp();
-		app.load(path);
+		TestApp app1 = new TestApp();
+		app1.createNote("test");
+		app1.save(path);
+		//
+		TestApp app2 = new TestApp();
+		app2.load(path);
+		assertEquals("test", app2.getAllNotes().get(0));
 	}
 	
 	
