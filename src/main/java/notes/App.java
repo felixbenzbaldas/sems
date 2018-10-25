@@ -12,11 +12,11 @@ public class App {
 
 	private List<String> data = new LinkedList<String>();
 
-	public void createNote(String note) throws IOException {
+	public void createNote(String note) {
 		data.add(note);
 	}
 
-	public List<String> getAllNotes() throws IOException, ClassNotFoundException {
+	public List<String> getAllNotes() {
 		return data;
 	}
 
