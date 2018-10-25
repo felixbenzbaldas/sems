@@ -50,11 +50,15 @@ public class TestApp {
 	public void save() throws Exception{
 		save("testFile.ser");
 	}
-	
-	public void load() throws Exception {
-		FileInputStream fin = new FileInputStream("testFile.ser");
+
+	public void load(String path) throws Exception {
+		FileInputStream fin = new FileInputStream(path);
 		ObjectInputStream ois = new ObjectInputStream(fin);
 		data = (List<String>) ois.readObject();
+	}
+
+	public void load() throws Exception {
+		load("testFile.ser");
 	}
 	
 }
