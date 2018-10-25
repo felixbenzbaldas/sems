@@ -18,15 +18,16 @@ public class TestApp {
 
 	@Test
 	public void testCreateNote() throws Exception {
-		createNote("Test-Notiz");
-		assertEquals("Test-Notiz", getAllNotes().get(0));
+		TestApp app = new TestApp();
+		app.createNote("Test-Notiz");
+		assertEquals("Test-Notiz", app.getAllNotes().get(0));
 	}
 	
 
 	@Test
 	public void testSave() throws Exception {
 		String path = "src/test/resources/testData/testFile-" + Math.random() + ".ser";
-		save(path);
+		new TestApp().save(path);
 		assertTrue(new File(path).exists());
 	}
 	
