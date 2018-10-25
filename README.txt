@@ -6,3 +6,7 @@ Features:
 * get all created notes
 * save
 * load
+
+
+GUI
+* Zeige alle Notizen
