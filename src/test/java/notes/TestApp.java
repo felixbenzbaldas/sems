@@ -22,11 +22,12 @@ public class TestApp {
 		assertEquals("Test-Notiz", getAllNotes().get(0));
 	}
 	
+
 	@Test
 	public void testSave() throws Exception {
-		String randomName = "src/test/resources/testData/testFile-" + Math.random() + ".ser";
-		save(randomName);
-		assertTrue(new File(randomName).exists());
+		String path = "src/test/resources/testData/testFile-" + Math.random() + ".ser";
+		save(path);
+		assertTrue(new File(path).exists());
 	}
 	
 	private List<String> data = new LinkedList<String>();
