@@ -30,6 +30,16 @@ public class TestApp {
 		assertTrue(new File(path).exists());
 	}
 	
+	@Test
+	public void testLoad() throws Exception {
+		String path = "src/test/resources/testData/testFile-" + Math.random() + ".ser";
+		new TestApp().save(path);
+		TestApp app = new TestApp();
+		app.load(path);
+	}
+	
+	
+	
 	private List<String> data = new LinkedList<String>();
 
 	public void createNote(String note) throws IOException {
