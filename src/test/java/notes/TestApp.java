@@ -11,8 +11,19 @@ public class TestApp {
 
 	@Test
 	public void testCreateNote() throws Exception {
-		App app = new App();
-		app.createNote("Test-Notiz");
+		createNote("Test-Notiz");
+		testHasNote("Test-Notiz");
+		
+	}
+	
+	private App app;
+	
+	private void createNote(String note) {
+		app = new App();
+		app.createNote(note);
+	}
+	
+	private void testHasNote(String note) {
 		assertEquals("Test-Notiz", app.getAllNotes().get(0));
 	}
 	
