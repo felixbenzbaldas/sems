@@ -1,12 +1,15 @@
 package notes;
 
 import static org.hamcrest.CoreMatchers.hasItems;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
+import java.sql.Ref;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.hamcrest.core.Is;
 import org.junit.Test;
 
 public class TestApp {
@@ -42,10 +45,11 @@ public class TestApp {
 	}
 	
 	@Test
-	public void testCanHaveReference() {
+	public void testReference() {
 		createNote();
-		createReference();
-		testHasReference();
+		String referencedNote = "referencedNote";
+		createReference(referencedNote);
+		testHasReference(referencedNote);
 	}
 	
 	private String myNote;
@@ -55,12 +59,12 @@ public class TestApp {
 		myNote = "test";
 	}
 
-	private void createReference() {
-		allReferences.put(myNote, "referencedNote");
+	private void createReference(String referencedNote) {
+		allReferences.put(myNote, referencedNote);
 	}
 	
-	private void testHasReference() {
-		assertTrue(allReferences.get(myNote) != null);
+	private void testHasReference(String referencedNote) {
+		assertThat(allReferences.get(myNote), is(referencedNote));
 	}
 
 
