@@ -29,14 +29,7 @@ public class TestApp {
 	}
 	
 	@Test
-	public void testSave() throws Exception {
-		String path = "src/test/resources/testData/testFile-" + Math.random() + ".ser";
-		new App().save(path);
-		assertTrue(new File(path).exists());
-	}
-	
-	@Test
-	public void testLoad() throws Exception {
+	public void testSaveAndLoad() throws Exception {
 		String path = "src/test/resources/testData/testFile-" + Math.random() + ".ser";
 		App app1 = new App();
 		app1.createNote("test");
