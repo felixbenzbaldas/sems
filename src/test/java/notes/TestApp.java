@@ -4,8 +4,6 @@ import static org.hamcrest.CoreMatchers.hasItems;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-import java.io.File;
-
 import org.junit.Test;
 
 public class TestApp {
@@ -38,5 +36,28 @@ public class TestApp {
 		App app2 = new App();
 		app2.load(path);
 		assertThat(app2.getAllNotes(), hasItems("test"));
+	}
+	
+	@Test
+	public void testCanHaveReference() {
+		createNote();
+		createReference();
+		testHasReference();
+	}
+	
+	private Object reference = "myReference";
+	
+	private void testHasReference() {
+		assertTrue(reference != null);
+	}
+
+	private void createReference() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void createNote() {
+		// TODO Auto-generated method stub
+		
 	}
 }
