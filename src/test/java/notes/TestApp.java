@@ -1,9 +1,8 @@
 package notes;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.hasItems;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
-import static org.hamcrest.CoreMatchers.*;
 
 import java.io.File;
 
