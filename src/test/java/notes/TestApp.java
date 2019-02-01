@@ -1,7 +1,9 @@
 package notes;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
+import static org.hamcrest.CoreMatchers.*;
 
 import java.io.File;
 
@@ -24,7 +26,7 @@ public class TestApp {
 	}
 	
 	private void testHasNote(String note) {
-		assertEquals("Test-Notiz", app.getAllNotes().get(0));
+		assertThat(app.getAllNotes(), hasItems("Test-Notiz"));
 	}
 	
 	@Test
