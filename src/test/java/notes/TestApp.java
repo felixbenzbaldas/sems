@@ -4,6 +4,9 @@ import static org.hamcrest.CoreMatchers.hasItems;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.Test;
 
 public class TestApp {
@@ -45,19 +48,20 @@ public class TestApp {
 		testHasReference();
 	}
 	
-	private Object reference = "myReference";
-	
-	private void testHasReference() {
-		assertTrue(reference != null);
+	private String myNote;
+	private Map<String, String> allReferences = new HashMap<String, String>();
+
+	private void createNote() {
+		myNote = "test";
 	}
 
 	private void createReference() {
-		// TODO Auto-generated method stub
-		
+		allReferences.put(myNote, "referencedNote");
+	}
+	
+	private void testHasReference() {
+		assertTrue(allReferences.get(myNote) != null);
 	}
 
-	private void createNote() {
-		// TODO Auto-generated method stub
-		
-	}
+
 }
