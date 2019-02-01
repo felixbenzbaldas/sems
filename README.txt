@@ -6,6 +6,7 @@ Features:
 * get all created notes
 * save
 * load
+* note can reference another note
 
 
 GUI
