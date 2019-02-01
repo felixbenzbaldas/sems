@@ -3,6 +3,7 @@ package notes;
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -51,7 +52,6 @@ public class TestApp {
 	}
 	
 	private Note myNote;
-	private Map<Note, Note> allReferences = new HashMap<Note, Note>();
 
 	private void createNote() {
 		myNote = new Note();
@@ -59,11 +59,11 @@ public class TestApp {
 	}
 
 	private void createReference(Note referencedNote) {
-		allReferences.put(myNote, referencedNote);
+		myNote.allReferences.add(referencedNote);
 	}
 	
 	private void testHasReference(Note referencedNote) {
-		assertThat(allReferences.get(myNote), is(referencedNote));
+		assertThat(myNote.allReferences, hasItems(referencedNote));
 	}
 
 
