@@ -27,7 +27,7 @@ public class TestApp {
 	}
 	
 	private void testHasNote(String note) {
-		assertThat(app.getAllNotes(), hasItems("Test-Notiz"));
+		assertTrue(app.getAllNotes().get(0).text.equals(note));
 	}
 	
 	@Test
@@ -39,7 +39,7 @@ public class TestApp {
 		//
 		App app2 = new App();
 		app2.load(path);
-		assertThat(app2.getAllNotes(), hasItems("test"));
+		assertTrue(app2.getAllNotes().get(0).text.equals("test"));
 	}
 	
 	@Test
