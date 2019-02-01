@@ -3,13 +3,10 @@ package notes;
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
-import java.sql.Ref;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.hamcrest.core.Is;
 import org.junit.Test;
 
 public class TestApp {
@@ -47,23 +44,25 @@ public class TestApp {
 	@Test
 	public void testReference() {
 		createNote();
-		String referencedNote = "referencedNote";
+		Note referencedNote = new Note();
+		referencedNote.text = "referencedNote";
 		createReference(referencedNote);
 		testHasReference(referencedNote);
 	}
 	
-	private String myNote;
-	private Map<String, String> allReferences = new HashMap<String, String>();
+	private Note myNote;
+	private Map<Note, Note> allReferences = new HashMap<Note, Note>();
 
 	private void createNote() {
-		myNote = "test";
+		myNote = new Note();
+		myNote.text = "myNote";
 	}
 
-	private void createReference(String referencedNote) {
+	private void createReference(Note referencedNote) {
 		allReferences.put(myNote, referencedNote);
 	}
 	
-	private void testHasReference(String referencedNote) {
+	private void testHasReference(Note referencedNote) {
 		assertThat(allReferences.get(myNote), is(referencedNote));
 	}
 
