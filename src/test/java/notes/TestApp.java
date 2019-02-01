@@ -45,6 +45,6 @@ public class TestApp {
 		//
 		App app2 = new App();
 		app2.load(path);
-		assertEquals("test", app2.getAllNotes().get(0));
+		assertThat(app2.getAllNotes(), hasItems("test"));
 	}
 }
