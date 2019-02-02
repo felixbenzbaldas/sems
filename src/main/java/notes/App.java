@@ -11,8 +11,10 @@ public class App {
 
 	private List<Note> data = new LinkedList<Note>();
 
-	public void createNote(String note) {
-		data.add(new Note(note));
+	public Note createNote(String note) {
+		Note noteObject = new Note(note);
+		data.add(noteObject);
+		return noteObject;
 	}
 
 	public List<Note> getAllNotes() {
