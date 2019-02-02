@@ -13,11 +13,6 @@ public class TestApp {
 	@Test
 	public void testCreateNote() throws Exception {
 		Note note = app.createNote("Test-Notiz");
-		testHasNote(note);
-	}
-	
-	
-	private void testHasNote(Note note) {
 		assertThat(app.getAllNotes(), hasItems(note));
 	}
 	
