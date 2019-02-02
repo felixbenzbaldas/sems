@@ -50,4 +50,8 @@ public class App {
 	public void deleteNote(Note note) {
 		data.remove(note);
 	}
+
+	public void deleteReference(Note source, Note target) {
+		source.allReferences.remove(target);
+	}
 }

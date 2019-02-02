@@ -1,9 +1,8 @@
 package notes;
 
 import static org.hamcrest.CoreMatchers.hasItems;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 import static org.hamcrest.core.IsNot.not;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
@@ -42,5 +41,14 @@ public class TestApp {
 		Note note = app.createNote("toDelete");
 		app.deleteNote(note);
 		assertThat(app.getAllNotes(),not(hasItems(note)));
+	}
+	
+	@Test
+	public void testDeleteReference() {
+		Note source = app.createNote("source");
+		Note target = app.createNote("target");
+		app.createReference(source, target);
+		app.deleteReference(source, target);
+		assertThat(source.allReferences, not(hasItems(target)));
 	}
 }
