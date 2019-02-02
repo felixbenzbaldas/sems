@@ -10,12 +10,11 @@ public class TestApp {
 
 	@Test
 	public void testCreateNote() throws Exception {
-		app = new App();
 		Note note = app.createNote("Test-Notiz");
 		testHasNote(note);
 	}
 	
-	private App app;
+	private App app = new App();
 	
 	private void testHasNote(Note note) {
 		assertThat(app.getAllNotes(), hasItems(note));
@@ -35,7 +34,6 @@ public class TestApp {
 	
 	@Test
 	public void testReference() {
-		
 		createNote();
 		Note referencedNote = new Note();
 		referencedNote.text = "referencedNote";
@@ -46,8 +44,7 @@ public class TestApp {
 	private Note myNote;
 
 	private void createNote() {
-		myNote = new Note();
-		myNote.text = "myNote";
+		myNote = app.createNote("test");
 	}
 
 	private void createReference(Note referencedNote) {
