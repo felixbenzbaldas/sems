@@ -56,7 +56,10 @@ public class App {
 	}
 
 	public void createAssociation(Note source, Note target) {
-		source.allReferences.add(target);
-		target.allReferences.add(source);
+		Association association = new Association();
+		association.note1 = source;
+		association.note2 = target;
+		source.allReferences.add(association);
+		target.allReferences.add(association);
 	}
 }
