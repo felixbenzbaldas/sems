@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Note implements Serializable {
 
-	public String text;
+	private String text;
 	
 	public List<Note> allReferences = new LinkedList<Note>();
 
@@ -17,7 +17,7 @@ public class Note implements Serializable {
 	
 	public Note() {
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

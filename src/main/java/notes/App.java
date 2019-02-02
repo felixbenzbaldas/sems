@@ -46,4 +46,8 @@ public class App {
 	public void load() throws Exception {
 		load("testFile.ser");
 	}
+
+	public void deleteNote(Note note) {
+		data.remove(note);
+	}
 }

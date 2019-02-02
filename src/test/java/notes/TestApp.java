@@ -3,6 +3,7 @@ package notes;
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
+import static org.hamcrest.core.IsNot.not;
 
 import org.junit.Test;
 
@@ -34,5 +35,12 @@ public class TestApp {
 		Note target = app.createNote("target");
 		app.createReference(source, target);
 		assertThat(source.allReferences, hasItems(target));
+	}
+	
+	@Test
+	public void testDeleteNote() {
+		Note note = app.createNote("toDelete");
+		app.deleteNote(note);
+		assertThat(app.getAllNotes(),not(hasItems(note)));
 	}
 }
