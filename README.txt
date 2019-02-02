@@ -7,7 +7,3 @@ Features:
 * save
 * load
 * note can reference another note
-
-
-GUI
-* Zeige alle Notizen
