@@ -6,6 +6,11 @@ import java.util.List;
 
 public class Note implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private String text;
 	
 	public List<Note> allReferences = new LinkedList<Note>();
@@ -52,5 +57,11 @@ public class Note implements Serializable {
 	@Override
 	public String toString() {
 		return "Note [" + text + ", number of references =" + allReferences.size() + "]";
+	}
+	
+	public String toStringBig() {
+		final StringBuilder toReturn = new StringBuilder(text);
+		allReferences.forEach(note -> toReturn.append("\n  " + note.text));
+		return toReturn.toString();
 	}
 }
