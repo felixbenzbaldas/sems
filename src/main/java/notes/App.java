@@ -16,6 +16,10 @@ public class App {
 		data.add(noteObject);
 		return noteObject;
 	}
+	
+	public void createReference(Note source, Note target) {
+		source.allReferences.add(target);
+	}
 
 	public List<Note> getAllNotes() {
 		return data;

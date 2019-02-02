@@ -24,17 +24,18 @@ public class TestApp {
 	@Test
 	public void testSaveAndLoad() throws Exception {
 		String path = "src/test/resources/testData/testFile-" + Math.random() + ".ser";
-		App app1 = new App();
-		Note note = app1.createNote("test");
-		app1.save(path);
+		App appSave = new App();
+		Note note = appSave.createNote("test");
+		appSave.save(path);
 		//
-		App app2 = new App();
-		app2.load(path);
-		assertThat(app2.getAllNotes(), hasItems(note));
+		App appLoad = new App();
+		appLoad.load(path);
+		assertThat(appLoad.getAllNotes(), hasItems(note));
 	}
 	
 	@Test
 	public void testReference() {
+		
 		createNote();
 		Note referencedNote = new Note();
 		referencedNote.text = "referencedNote";
@@ -50,7 +51,7 @@ public class TestApp {
 	}
 
 	private void createReference(Note referencedNote) {
-		myNote.allReferences.add(referencedNote);
+		new App().createReference(myNote, referencedNote);
 	}
 	
 	private void testHasReference(Note referencedNote) {
