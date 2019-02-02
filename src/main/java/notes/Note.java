@@ -4,13 +4,13 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Note implements Serializable {
+public class Note implements MyObject, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private String text;
 	
-	public List<Object> allReferences = new LinkedList<Object>();
+	public List<MyObject> allReferences = new LinkedList<MyObject>();
 
 	public Note(String text) {
 		super();
