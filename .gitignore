@@ -3,3 +3,4 @@
 .project
 .classpath
 /src/test/resources/testData/
+testFile.ser
