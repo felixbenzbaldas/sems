@@ -1,8 +1,11 @@
 package notes;
 
 import static org.hamcrest.CoreMatchers.hasItems;
+import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.assertThat;
+
+import java.util.LinkedList;
 
 import org.junit.Test;
 
@@ -51,4 +54,13 @@ public class TestApp {
 		app.deleteReference(source, target);
 		assertThat(source.allReferences, not(hasItems(target)));
 	}
+	
+	@Test
+	public void testCanCreateAssociation() {
+		Note source = app.createNote("source");
+		Note target = app.createNote("target");
+		app.createAssociation(source, target);
+		assertThat(source.allReferences, is(not(new LinkedList<>())));
+	}
+	
 }

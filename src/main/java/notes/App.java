@@ -54,4 +54,9 @@ public class App {
 	public void deleteReference(Note source, Note target) {
 		source.allReferences.remove(target);
 	}
+
+	public void createAssociation(Note source, Note target) {
+		source.allReferences.add(target);
+		target.allReferences.add(source);
+	}
 }
