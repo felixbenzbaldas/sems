@@ -16,7 +16,7 @@ public class TestApp {
 	@Test
 	public void testCreateNote() throws Exception {
 		Note note = app.createNote("Test-Notiz");
-		assertThat(app.getAllNotes(), hasItems(note));
+		assertThat(app.getAllObjects(), hasItems(note));
 	}
 	
 	@Test
@@ -28,7 +28,7 @@ public class TestApp {
 		//
 		App appLoad = new App();
 		appLoad.load(path);
-		assertThat(appLoad.getAllNotes(), hasItems(note));
+		assertThat(appLoad.getAllObjects(), hasItems(note));
 	}
 	
 	@Test
@@ -43,7 +43,7 @@ public class TestApp {
 	public void testDeleteNote() {
 		Note note = app.createNote("toDelete");
 		app.deleteNote(note);
-		assertThat(app.getAllNotes(),not(hasItems(note)));
+		assertThat(app.getAllObjects(),not(hasItems(note)));
 	}
 	
 	@Test

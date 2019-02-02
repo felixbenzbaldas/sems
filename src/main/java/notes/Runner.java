@@ -20,6 +20,6 @@ public class Runner {
 	}
 	
 	private void printAllNotes() {
-		app.getAllNotes().stream().forEach(note -> System.out.println((note.toStringBig())));
+		app.getAllObjects().stream().forEach(note -> System.out.println((note.toStringBig())));
 	}
 }

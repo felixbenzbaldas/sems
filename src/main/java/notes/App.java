@@ -21,7 +21,7 @@ public class App {
 		source.allRelationships.add(target);
 	}
 
-	public List<MyObject> getAllNotes() {
+	public List<MyObject> getAllObjects() {
 		return data;
 	}
 
