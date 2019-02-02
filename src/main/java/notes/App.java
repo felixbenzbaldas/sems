@@ -9,7 +9,7 @@ import java.util.List;
 
 public class App {
 
-	private List<Note> data = new LinkedList<Note>();
+	private List<Object> data = new LinkedList<Object>();
 
 	public Note createNote(String note) {
 		Note noteObject = new Note(note);
@@ -21,7 +21,7 @@ public class App {
 		source.allReferences.add(target);
 	}
 
-	public List<Note> getAllNotes() {
+	public List<Object> getAllNotes() {
 		return data;
 	}
 
@@ -39,7 +39,7 @@ public class App {
 	public void load(String path) throws Exception {
 		FileInputStream fin = new FileInputStream(path);
 		ObjectInputStream ois = new ObjectInputStream(fin);
-		data = (List<Note>) ois.readObject();
+		data = (List<Object>) ois.readObject();
 		ois.close();
 	}
 

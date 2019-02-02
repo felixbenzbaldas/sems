@@ -10,7 +10,7 @@ public class Note implements Serializable {
 
 	private String text;
 	
-	public List<Note> allReferences = new LinkedList<Note>();
+	public List<Object> allReferences = new LinkedList<Object>();
 
 	public Note(String text) {
 		super();

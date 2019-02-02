@@ -1,6 +1,6 @@
 package notes;
 
-public class Association extends Note {
+public class Association {
 	private static final long serialVersionUID = 1L;
 	private Note note1;
 	private Note note2;
