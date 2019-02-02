@@ -18,7 +18,7 @@ public class App {
 	}
 	
 	public void createReference(Note source, Note target) {
-		source.allReferences.add(target);
+		source.allRelationships.add(target);
 	}
 
 	public List<MyObject> getAllNotes() {
@@ -52,12 +52,12 @@ public class App {
 	}
 
 	public void deleteReference(Note source, Note target) {
-		source.allReferences.remove(target);
+		source.allRelationships.remove(target);
 	}
 
 	public void createAssociation(Note source, Note target) {
 		Association association = new Association(source, target);
-		source.allReferences.add(association);
-		target.allReferences.add(association);
+		source.allRelationships.add(association);
+		target.allRelationships.add(association);
 	}
 }

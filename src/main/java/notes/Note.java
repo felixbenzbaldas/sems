@@ -10,7 +10,7 @@ public class Note implements MyObject, Serializable {
 
 	private String text;
 	
-	public List<MyObject> allReferences = new LinkedList<MyObject>();
+	public List<MyObject> allRelationships = new LinkedList<MyObject>();
 
 	public Note(String text) {
 		super();
@@ -24,7 +24,7 @@ public class Note implements MyObject, Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((allReferences == null) ? 0 : allReferences.hashCode());
+		result = prime * result + ((allRelationships == null) ? 0 : allRelationships.hashCode());
 		result = prime * result + ((text == null) ? 0 : text.hashCode());
 		return result;
 	}
@@ -38,10 +38,10 @@ public class Note implements MyObject, Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Note other = (Note) obj;
-		if (allReferences == null) {
-			if (other.allReferences != null)
+		if (allRelationships == null) {
+			if (other.allRelationships != null)
 				return false;
-		} else if (!allReferences.equals(other.allReferences))
+		} else if (!allRelationships.equals(other.allRelationships))
 			return false;
 		if (text == null) {
 			if (other.text != null)
@@ -58,7 +58,7 @@ public class Note implements MyObject, Serializable {
 	
 	public String toStringBig() {
 		final StringBuilder toReturn = new StringBuilder(text);
-		allReferences.forEach(note -> toReturn.append("\n  " + note));
+		allRelationships.forEach(note -> toReturn.append("\n  " + note));
 		return toReturn.toString();
 	}
 }

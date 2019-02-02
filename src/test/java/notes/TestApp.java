@@ -36,7 +36,7 @@ public class TestApp {
 		Note source = app.createNote("source");
 		Note target = app.createNote("target");
 		app.createReference(source, target);
-		assertThat(source.allReferences, hasItems(target));
+		assertThat(source.allRelationships, hasItems(target));
 	}
 	
 	@Test
@@ -52,7 +52,7 @@ public class TestApp {
 		Note target = app.createNote("target");
 		app.createReference(source, target);
 		app.deleteReference(source, target);
-		assertThat(source.allReferences, not(hasItems(target)));
+		assertThat(source.allRelationships, not(hasItems(target)));
 	}
 	
 	@Test
@@ -60,7 +60,7 @@ public class TestApp {
 		Note source = app.createNote("source");
 		Note target = app.createNote("target");
 		app.createAssociation(source, target);
-		assertThat(source.allReferences, is(not(new LinkedList<>())));
+		assertThat(source.allRelationships, is(not(new LinkedList<>())));
 	}
 	
 }
