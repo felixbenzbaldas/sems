@@ -8,13 +8,14 @@ import org.junit.Test;
 
 public class TestApp {
 
+	private App app = new App();
+	
 	@Test
 	public void testCreateNote() throws Exception {
 		Note note = app.createNote("Test-Notiz");
 		testHasNote(note);
 	}
 	
-	private App app = new App();
 	
 	private void testHasNote(Note note) {
 		assertThat(app.getAllNotes(), hasItems(note));
@@ -34,26 +35,10 @@ public class TestApp {
 	
 	@Test
 	public void testReference() {
-		createNote();
-		Note referencedNote = new Note();
-		referencedNote.text = "referencedNote";
-		createReference(referencedNote);
-		testHasReference(referencedNote);
+		Note source = app.createNote("");
+		Note target = app.createNote("");
+		app.createReference(source, target);
+		assertThat(source.allReferences, hasItems(target));
 	}
-	
-	private Note myNote;
-
-	private void createNote() {
-		myNote = app.createNote("test");
-	}
-
-	private void createReference(Note referencedNote) {
-		new App().createReference(myNote, referencedNote);
-	}
-	
-	private void testHasReference(Note referencedNote) {
-		assertThat(myNote.allReferences, hasItems(referencedNote));
-	}
-
 
 }
