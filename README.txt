@@ -7,3 +7,5 @@ Features:
 * save
 * load
 * note can reference another note
+* delete note
+* delete reference
