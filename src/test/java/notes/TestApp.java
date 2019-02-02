@@ -30,10 +30,9 @@ public class TestApp {
 	
 	@Test
 	public void testReference() {
-		Note source = app.createNote("");
-		Note target = app.createNote("");
+		Note source = app.createNote("source");
+		Note target = app.createNote("target");
 		app.createReference(source, target);
 		assertThat(source.allReferences, hasItems(target));
 	}
-
 }
