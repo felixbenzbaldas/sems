@@ -53,5 +53,4 @@ public class Note implements Serializable {
 	public String toString() {
 		return "Note [" + text + ", number of references =" + allReferences.size() + "]";
 	}
-	
 }
