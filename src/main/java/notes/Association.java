@@ -8,4 +8,8 @@ public class Association extends Note {
 		this.note1 = note1;
 		this.note2 = note2;
 	}
+	@Override
+	public String toString() {
+		return "Association [note1=" + note1 + ", note2=" + note2 + "]";
+	}
 }

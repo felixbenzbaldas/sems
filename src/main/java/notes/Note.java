@@ -6,9 +6,6 @@ import java.util.List;
 
 public class Note implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private String text;
@@ -56,12 +53,12 @@ public class Note implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Note [" + text + ", number of references =" + allReferences.size() + "]";
+		return "Note [" + text + "]";
 	}
 	
 	public String toStringBig() {
 		final StringBuilder toReturn = new StringBuilder(text);
-		allReferences.forEach(note -> toReturn.append("\n  " + note.text));
+		allReferences.forEach(note -> toReturn.append("\n  " + note));
 		return toReturn.toString();
 	}
 }
