@@ -14,9 +14,10 @@ public class TestApp {
 	private App app = new App();
 	
 	@Test
-	public void testCreateNote() throws Exception {
+	public void canGetAllObjects() throws Exception {
 		Note note = app.createNote("Test-Notiz");
-		assertThat(app.getAllObjects(), hasItems(note));
+		MyObject association = app.createAssociation(note, note);
+		assertThat(app.getAllObjects(), hasItems(note, association));
 	}
 	
 	@Test
@@ -62,5 +63,4 @@ public class TestApp {
 		app.createAssociation(source, target);
 		assertThat(source.allRelationships, is(not(new LinkedList<>())));
 	}
-	
 }

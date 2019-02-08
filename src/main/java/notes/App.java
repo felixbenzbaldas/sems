@@ -55,9 +55,11 @@ public class App {
 		source.allRelationships.remove(target);
 	}
 
-	public void createAssociation(Note source, Note target) {
+	public Association createAssociation(Note source, Note target) {
 		Association association = new Association(source, target);
 		source.allRelationships.add(association);
 		target.allRelationships.add(association);
+		data.add(association);
+		return association;
 	}
 }
