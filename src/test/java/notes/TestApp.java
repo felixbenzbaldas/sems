@@ -63,4 +63,24 @@ public class TestApp {
 		app.createAssociation(source, target);
 		assertThat(source.allRelationships, is(not(new LinkedList<>())));
 	}
+	
+	
+	@Test
+	public void testCanDeleteAssociation() {
+		Note source = app.createNote("source");
+		Note target = app.createNote("target");
+		Association association = app.createAssociation(source, target);
+		association.delete();
+		assertThat(source.allRelationships, is(new LinkedList<>()));
+	}
+	
+	
+	@Test
+	public void testCanDeleteAssociation2() {
+		Note source = app.createNote("source");
+		Note target = app.createNote("target");
+		Association association = app.createAssociation(source, target);
+		app.deleteAssociation(association);
+		assertThat(app.getAllObjects(), not(hasItems(association)));
+	}
 }

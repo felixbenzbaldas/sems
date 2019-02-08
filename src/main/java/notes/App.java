@@ -62,4 +62,9 @@ public class App {
 		data.add(association);
 		return association;
 	}
+
+	public void deleteAssociation(Association association) {
+		association.delete();
+		this.data.remove(association);
+	}
 }

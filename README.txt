@@ -10,3 +10,4 @@ Features:
 * delete note
 * delete reference
 * create association between two notes (bidirectional)
+* delete association

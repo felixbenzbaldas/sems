@@ -18,4 +18,8 @@ public class Association implements MyObject, Serializable {
 	public String toStringBig() {
 		return this.toString();
 	}
+	public void delete() {
+		note1.allRelationships.remove(this);
+		note2.allRelationships.remove(this);
+	}
 }
