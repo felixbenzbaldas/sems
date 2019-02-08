@@ -13,15 +13,6 @@ public class TestApp {
 
 	private App app = new App();
 	
-	
-	// test that app.getAllObjects() returns all created objects
-	@Test
-	public void testCanGetAllObjects() throws Exception {
-		Note note = app.createNote("Test-Notiz");
-		MyObject association = app.createAssociation(note, note);
-		assertThat(app.getAllObjects(), hasItems(note, association));
-	}
-	
 	@Test
 	public void testSaveAndLoad() throws Exception {
 		String path = "src/test/resources/testData/testFile-" + Math.random() + ".ser";
@@ -34,12 +25,12 @@ public class TestApp {
 		assertThat(appLoad.getAllObjects(), hasItems(note));
 	}
 	
+	// test that app.getAllObjects() returns all created objects
 	@Test
-	public void testReference() {
-		Note source = app.createNote("source");
-		Note target = app.createNote("target");
-		app.createReference(source, target);
-		assertThat(source.getAllRelationships(), hasItems(target));
+	public void testCanGetAllObjects() throws Exception {
+		Note note = app.createNote("Test-Notiz");
+		MyObject association = app.createAssociation(note, note);
+		assertThat(app.getAllObjects(), hasItems(note, association));
 	}
 	
 	@Test
@@ -47,6 +38,14 @@ public class TestApp {
 		Note note = app.createNote("toDelete");
 		app.deleteNote(note);
 		assertThat(app.getAllObjects(),not(hasItems(note)));
+	}
+	
+	@Test
+	public void testReference() {
+		Note source = app.createNote("source");
+		Note target = app.createNote("target");
+		app.createReference(source, target);
+		assertThat(source.getAllRelationships(), hasItems(target));
 	}
 	
 	@Test
@@ -66,7 +65,6 @@ public class TestApp {
 		assertThat(source.getAllRelationships(), is(not(new LinkedList<>())));
 	}
 	
-	
 	@Test
 	public void testCanDeleteAssociation() {
 		Note source = app.createNote("source");
@@ -76,9 +74,8 @@ public class TestApp {
 		assertThat(source.getAllRelationships(), is(new LinkedList<>()));
 	}
 	
-	
 	@Test
-	public void testCanDeleteAssociation2() {
+	public void testCanDeleteAssociation_2() {
 		Note source = app.createNote("source");
 		Note target = app.createNote("target");
 		Association association = app.createAssociation(source, target);

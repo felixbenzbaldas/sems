@@ -26,7 +26,6 @@ public class Association implements MyObject, Serializable {
 	
 	@Override
 	public List<MyObject> getAllRelationships() {
-		// TODO Auto-generated method stub
-		return null;
+		throw new RuntimeException("nicht implementiert für diese Klasse");
 	}
 }
