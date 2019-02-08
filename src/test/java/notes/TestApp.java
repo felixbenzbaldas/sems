@@ -14,7 +14,7 @@ public class TestApp {
 	private App app = new App();
 	
 	@Test
-	public void canGetAllObjects() throws Exception {
+	public void testCanGetAllObjects() throws Exception {
 		Note note = app.createNote("Test-Notiz");
 		MyObject association = app.createAssociation(note, note);
 		assertThat(app.getAllObjects(), hasItems(note, association));
