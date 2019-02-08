@@ -26,6 +26,6 @@ public class Association implements MyObject, Serializable {
 	
 	@Override
 	public List<MyObject> getAllRelationships() {
-		throw new RuntimeException("nicht implementiert für diese Klasse");
+		throw new RuntimeException("not implemented for this class");
 	}
 }

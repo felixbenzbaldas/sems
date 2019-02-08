@@ -11,20 +11,6 @@ public class App {
 
 	private List<MyObject> data = new LinkedList<MyObject>();
 
-	public Note createNote(String note) {
-		Note noteObject = new Note(note);
-		data.add(noteObject);
-		return noteObject;
-	}
-	
-	public void createReference(Note source, Note target) {
-		source.getAllRelationships().add(target);
-	}
-
-	public List<MyObject> getAllObjects() {
-		return data;
-	}
-
 	public void save(String path) throws Exception{
 		FileOutputStream fout = new FileOutputStream(path);
 		ObjectOutputStream oos = new ObjectOutputStream(fout);
@@ -47,8 +33,22 @@ public class App {
 		load("testFile.ser");
 	}
 
+	public List<MyObject> getAllObjects() {
+		return data;
+	}
+
+	public Note createNote(String note) {
+		Note noteObject = new Note(note);
+		data.add(noteObject);
+		return noteObject;
+	}
+
 	public void deleteNote(Note note) {
 		data.remove(note);
+	}
+
+	public void createReference(Note source, Note target) {
+		source.getAllRelationships().add(target);
 	}
 
 	public void deleteReference(Note source, Note target) {
