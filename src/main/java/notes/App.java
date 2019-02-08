@@ -64,7 +64,8 @@ public class App {
 	}
 
 	public void deleteAssociation(Association association) {
-		association.delete();
+		association.getViewOnAssociatedObjects().stream()
+			.forEach(obj -> obj.getAllRelationships().remove(association));
 		this.data.remove(association);
 	}
 

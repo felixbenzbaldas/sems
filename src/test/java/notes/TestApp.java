@@ -70,7 +70,7 @@ public class TestApp {
 		Note source = app.createNote("source");
 		Note target = app.createNote("target");
 		Association association = app.createAssociation(source, target);
-		association.delete();
+		app.deleteAssociation(association);
 		assertThat(source.getAllRelationships(), is(new LinkedList<>()));
 	}
 	

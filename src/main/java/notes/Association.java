@@ -1,6 +1,7 @@
 package notes;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
 
 public class Association implements MyObject, Serializable {
@@ -19,10 +20,10 @@ public class Association implements MyObject, Serializable {
 	public String toStringBig() {
 		return this.toString();
 	}
-	public void delete() {
-		obj1.getAllRelationships().remove(this);
-		obj2.getAllRelationships().remove(this);
+	public List<MyObject> getViewOnAssociatedObjects() {
+		return Arrays.asList(obj1, obj2); 
 	}
+	
 	@Override
 	public List<MyObject> getAllRelationships() {
 		// TODO Auto-generated method stub
