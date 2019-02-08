@@ -37,7 +37,7 @@ public class TestApp {
 		Note source = app.createNote("source");
 		Note target = app.createNote("target");
 		app.createReference(source, target);
-		assertThat(source.allRelationships, hasItems(target));
+		assertThat(source.getAllRelationships(), hasItems(target));
 	}
 	
 	@Test
@@ -53,7 +53,7 @@ public class TestApp {
 		Note target = app.createNote("target");
 		app.createReference(source, target);
 		app.deleteReference(source, target);
-		assertThat(source.allRelationships, not(hasItems(target)));
+		assertThat(source.getAllRelationships(), not(hasItems(target)));
 	}
 	
 	@Test
@@ -61,7 +61,7 @@ public class TestApp {
 		Note source = app.createNote("source");
 		Note target = app.createNote("target");
 		app.createAssociation(source, target);
-		assertThat(source.allRelationships, is(not(new LinkedList<>())));
+		assertThat(source.getAllRelationships(), is(not(new LinkedList<>())));
 	}
 	
 	
@@ -71,7 +71,7 @@ public class TestApp {
 		Note target = app.createNote("target");
 		Association association = app.createAssociation(source, target);
 		association.delete();
-		assertThat(source.allRelationships, is(new LinkedList<>()));
+		assertThat(source.getAllRelationships(), is(new LinkedList<>()));
 	}
 	
 	
@@ -94,5 +94,12 @@ public class TestApp {
 	public void testOutlineName() {
 		Outline outline = app.createOutline("testOutline");
 		assertThat(outline.getName(), is("testOutline"));
+	}
+	
+	public void testAssocationToOutline() {
+		Note source = app.createNote("source");
+		Outline target = app.createOutline("outline");
+		app.createAssociation(source, null, target);
+		assertThat(source.getAllRelationships(), is(not(new LinkedList<>())));
 	}
 }

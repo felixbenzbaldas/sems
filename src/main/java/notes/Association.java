@@ -1,6 +1,7 @@
 package notes;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Association implements MyObject, Serializable {
 	private static final long serialVersionUID = 1L;
@@ -19,7 +20,12 @@ public class Association implements MyObject, Serializable {
 		return this.toString();
 	}
 	public void delete() {
-		note1.allRelationships.remove(this);
-		note2.allRelationships.remove(this);
+		note1.getAllRelationships().remove(this);
+		note2.getAllRelationships().remove(this);
+	}
+	@Override
+	public List<MyObject> getAllRelationships() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

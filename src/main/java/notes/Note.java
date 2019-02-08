@@ -10,7 +10,7 @@ public class Note implements MyObject, Serializable {
 
 	private String text;
 	
-	public List<MyObject> allRelationships = new LinkedList<MyObject>();
+	private List<MyObject> allRelationships = new LinkedList<MyObject>();
 
 	public Note(String text) {
 		super();
@@ -60,5 +60,10 @@ public class Note implements MyObject, Serializable {
 		final StringBuilder toReturn = new StringBuilder(text);
 		allRelationships.forEach(note -> toReturn.append("\n  " + note));
 		return toReturn.toString();
+	}
+
+	@Override
+	public List<MyObject> getAllRelationships() {
+		return allRelationships;
 	}
 }
