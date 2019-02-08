@@ -3,7 +3,7 @@ Semantic Structures
 
 Features:
 * create note
-* get all created notes
+* get all created objects
 * save
 * load
 * note can reference another note
