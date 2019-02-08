@@ -99,7 +99,7 @@ public class TestApp {
 	public void testAssocationToOutline() {
 		Note source = app.createNote("source");
 		Outline target = app.createOutline("outline");
-		app.createAssociation(source, target);
-		assertThat(target.getAllRelationships(), is(not(new LinkedList<>())));
+		Association association = app.createAssociation(source, target);
+		assertThat(target.getAllRelationships(), hasItems(association));
 	}
 }
