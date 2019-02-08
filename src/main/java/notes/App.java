@@ -58,7 +58,7 @@ public class App {
 	public Association createAssociation(MyObject source, MyObject target) {
 		Association association = new Association(source, target);
 		source.getAllRelationships().add(association);
-		target.getAllRelationships().add(target);
+		target.getAllRelationships().add(association);
 		data.add(association);
 		return association;
 	}

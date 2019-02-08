@@ -96,6 +96,7 @@ public class TestApp {
 		assertThat(outline.getName(), is("testOutline"));
 	}
 	
+	@Test
 	public void testAssocationToOutline() {
 		Note source = app.createNote("source");
 		Outline target = app.createOutline("outline");

@@ -23,8 +23,7 @@ public class Outline implements MyObject {
 
 	@Override
 	public List<MyObject> getAllRelationships() {
-		// TODO Auto-generated method stub
-		return null;
+		return allRelationships;
 	}
 
 	public List<MyObject> allRelationships = new LinkedList<MyObject>();
