@@ -69,7 +69,7 @@ public class App {
 	}
 
 	public Outline createOutline(String string) {
-		Outline outline = new Outline();
+		Outline outline = new Outline(string);
 		data.add(outline);
 		return outline;
 	}

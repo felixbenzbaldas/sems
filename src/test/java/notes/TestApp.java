@@ -89,4 +89,10 @@ public class TestApp {
 		Outline outline = app.createOutline("testOutline");
 		assertThat(app.getAllObjects(), hasItems(outline));
 	}
+	
+	@Test
+	public void testOutlineName() {
+		Outline outline = app.createOutline("testOutline");
+		assertThat(outline.getName(), is("testOutline"));
+	}
 }
