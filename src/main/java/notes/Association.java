@@ -5,23 +5,23 @@ import java.util.List;
 
 public class Association implements MyObject, Serializable {
 	private static final long serialVersionUID = 1L;
-	private Note note1;
-	private Note note2;
-	public Association(Note note1, Note note2) {
-		this.note1 = note1;
-		this.note2 = note2;
+	private MyObject obj1;
+	private MyObject obj2;
+	public Association(MyObject obj1, MyObject obj2) {
+		this.obj1 = obj1;
+		this.obj2 = obj2;
 	}
 	@Override
 	public String toString() {
-		return "Association [note1=" + note1 + ", note2=" + note2 + "]";
+		return "Association [obj1=" + obj1 + ", obj2=" + obj2 + "]";
 	}
 	@Override
 	public String toStringBig() {
 		return this.toString();
 	}
 	public void delete() {
-		note1.getAllRelationships().remove(this);
-		note2.getAllRelationships().remove(this);
+		obj1.getAllRelationships().remove(this);
+		obj2.getAllRelationships().remove(this);
 	}
 	@Override
 	public List<MyObject> getAllRelationships() {

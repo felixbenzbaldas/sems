@@ -55,17 +55,10 @@ public class App {
 		source.getAllRelationships().remove(target);
 	}
 
-	public Association createAssociation(Note source, Note target) {
+	public Association createAssociation(MyObject source, MyObject target) {
 		Association association = new Association(source, target);
 		source.getAllRelationships().add(association);
-		target.getAllRelationships().add(association);
-		data.add(association);
-		return association;
-	}
-	public Association createAssociation(Note source, Note target, MyObject tmpObject) {
-		Association association = new Association(source, target);
-		source.getAllRelationships().add(association);
-		target.getAllRelationships().add(tmpObject);
+		target.getAllRelationships().add(target);
 		data.add(association);
 		return association;
 	}
