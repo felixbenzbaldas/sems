@@ -13,6 +13,8 @@ public class TestApp {
 
 	private App app = new App();
 	
+	
+	// test that app.getAllObjects() returns all created objects
 	@Test
 	public void testCanGetAllObjects() throws Exception {
 		Note note = app.createNote("Test-Notiz");
