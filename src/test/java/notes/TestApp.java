@@ -83,4 +83,10 @@ public class TestApp {
 		app.deleteAssociation(association);
 		assertThat(app.getAllObjects(), not(hasItems(association)));
 	}
+	
+	@Test
+	public void testCanCreateOutline() {
+		Outline outline = app.createOutline("testOutline");
+		assertThat(app.getAllObjects(), hasItems(outline));
+	}
 }

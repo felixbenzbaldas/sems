@@ -67,4 +67,10 @@ public class App {
 		association.delete();
 		this.data.remove(association);
 	}
+
+	public Outline createOutline(String string) {
+		Outline outline = new Outline();
+		data.add(outline);
+		return outline;
+	}
 }
