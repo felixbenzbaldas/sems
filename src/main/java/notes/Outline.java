@@ -11,8 +11,7 @@ public class Outline implements MyObject {
 
 	@Override
 	public String toStringBig() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.toString();
 	}
 
 	public String getName() {

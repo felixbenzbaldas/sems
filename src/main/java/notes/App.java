@@ -68,8 +68,8 @@ public class App {
 		this.data.remove(association);
 	}
 
-	public Outline createOutline(String string) {
-		Outline outline = new Outline(string);
+	public Outline createOutline(String name) {
+		Outline outline = new Outline(name);
 		data.add(outline);
 		return outline;
 	}
