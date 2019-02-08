@@ -100,6 +100,6 @@ public class TestApp {
 		Note source = app.createNote("source");
 		Outline target = app.createOutline("outline");
 		app.createAssociation(source, null, target);
-		assertThat(source.getAllRelationships(), is(not(new LinkedList<>())));
+		assertThat(target.getAllRelationships(), is(not(new LinkedList<>())));
 	}
 }

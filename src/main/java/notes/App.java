@@ -65,7 +65,7 @@ public class App {
 	public Association createAssociation(Note source, Note target, MyObject tmpObject) {
 		Association association = new Association(source, target);
 		source.getAllRelationships().add(association);
-		target.getAllRelationships().add(association);
+		target.getAllRelationships().add(tmpObject);
 		data.add(association);
 		return association;
 	}
