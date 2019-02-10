@@ -1,4 +1,4 @@
-package notes;
+package sems;
 
 import java.io.Serializable;
 import java.util.Arrays;

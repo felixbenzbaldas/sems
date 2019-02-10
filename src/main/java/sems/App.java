@@ -1,4 +1,4 @@
-package notes;
+package sems;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

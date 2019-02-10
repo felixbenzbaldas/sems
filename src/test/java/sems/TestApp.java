@@ -1,4 +1,4 @@
-package notes;
+package sems;
 
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.*;
@@ -8,6 +8,12 @@ import static org.junit.Assert.assertThat;
 import java.util.LinkedList;
 
 import org.junit.Test;
+
+import sems.App;
+import sems.Association;
+import sems.MyObject;
+import sems.Note;
+import sems.Outline;
 
 public class TestApp {
 
@@ -37,7 +43,7 @@ public class TestApp {
 	public void testDeleteNote() {
 		Note note = app.createNote("toDelete");
 		app.deleteNote(note);
-		assertThat(app.getAllObjects(),not(hasItems(note)));
+		assertThat(app.getAllObjects(), not(hasItems(note)));
 	}
 	
 	@Test
