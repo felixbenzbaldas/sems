@@ -9,12 +9,6 @@ import java.util.LinkedList;
 
 import org.junit.Test;
 
-import sems.App;
-import sems.Association;
-import sems.MyObject;
-import sems.Note;
-import sems.Outline;
-
 public class TestApp {
 
 	private App app = new App();
