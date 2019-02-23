@@ -60,8 +60,8 @@ public class App {
 		return noteObject;
 	}
 
-	public void deleteObject(MyObject note) {
-		data.remove(note);
+	public void deleteObject(MyObject object) {
+		data.remove(object);
 	}
 
 	public void createReference(MyObject source, MyObject target) {
