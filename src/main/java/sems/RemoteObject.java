@@ -1,6 +1,7 @@
 package sems;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,6 +19,11 @@ public class RemoteObject implements MyObject{
 		if (address.startsWith("file:")) {
 			File file = new File(address.substring(5));
 			if (file.exists()) {
+				try {
+					return App.readFromFile(file.getAbsolutePath());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			} else {
 				return "RemoteObject - object doen't exist!";
 			}

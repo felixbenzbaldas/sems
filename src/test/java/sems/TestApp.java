@@ -106,9 +106,9 @@ public class TestApp {
 	@Test
 	public void testReadAndWriteFile_withRemoteObject() throws IOException {
 		String path = "src/test/resources/test.txt";
-		App.writeToFile(path, "test");
+		App.writeToFile(path, "test content of file");
 		RemoteObject remoteObject = app.createRemoteObject("file:" + path);
 		String read = remoteObject.toStringBig(); 
-		assertThat(read, containsString("test"));
+		assertThat(read, containsString("test content of file"));
 	}
 }
