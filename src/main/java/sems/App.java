@@ -86,9 +86,9 @@ public class App {
 		this.data.remove(association);
 	}
 
-	public RemoteObject createRemoteObject(String name) {
-		RemoteObject outline = new RemoteObject(name);
-		data.add(outline);
-		return outline;
+	public RemoteObject createRemoteObject(String address) {
+		RemoteObject remoteObject = new RemoteObject(address);
+		data.add(remoteObject);
+		return remoteObject;
 	}
 }
