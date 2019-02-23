@@ -95,12 +95,16 @@ public class TestApp {
 	
 	@Test
 	public void createAFile() throws IOException {
-		File file = new File("src/test/resources/test.txt");
+		writeToFile("src/test/resources/test.txt", "test");
+		String read = new String(Files.readAllBytes(new File("src/test/resources/test.txt").toPath()));
+		assertThat(read.substring(0, 4), is("test"));
+	}
+	
+	private static void writeToFile(String path, String string) throws IOException {
+		File file = new File(path);
 		file.createNewFile();
 		try (PrintWriter out = new PrintWriter(file)) {
-		    out.println("test");
+		    out.println(string);
 		}
-		String read = new String(Files.readAllBytes(file.toPath()));
-		assertThat(read.substring(0, 4), is("test"));
 	}
 }
