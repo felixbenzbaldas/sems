@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.LinkedList;
 
 import org.junit.Test;
@@ -95,8 +96,9 @@ public class TestApp {
 	
 	@Test
 	public void createAFile() throws IOException {
-		writeToFile("src/test/resources/test.txt", "test");
-		String read = new String(Files.readAllBytes(new File("src/test/resources/test.txt").toPath()));
+		String path = "src/test/resources/test.txt";
+		writeToFile(path, "test");
+		String read = readFromFile(path);
 		assertThat(read.substring(0, 4), is("test"));
 	}
 	
@@ -106,5 +108,9 @@ public class TestApp {
 		try (PrintWriter out = new PrintWriter(file)) {
 		    out.println(string);
 		}
+	}
+	
+	private static String readFromFile(String path) throws IOException {
+		return new String(Files.readAllBytes(Paths.get(path)));
 	}
 }
