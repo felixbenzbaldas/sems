@@ -96,7 +96,7 @@ public class TestApp {
 	}
 	
 	@Test
-	public void createAFile() throws IOException {
+	public void testReadAndWriteFile() throws IOException {
 		String path = "src/test/resources/test.txt";
 		writeToFile(path, "test");
 		String read = readFromFile(path);
