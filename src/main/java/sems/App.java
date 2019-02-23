@@ -47,11 +47,11 @@ public class App {
 		data.remove(note);
 	}
 
-	public void createReference(Note source, Note target) {
+	public void createReference(MyObject source, MyObject target) {
 		source.getAllRelationships().add(target);
 	}
 
-	public void deleteReference(Note source, Note target) {
+	public void deleteReference(MyObject source, MyObject target) {
 		source.getAllRelationships().remove(target);
 	}
 
@@ -69,7 +69,7 @@ public class App {
 		this.data.remove(association);
 	}
 
-	public RemoteObject createOutline(String name) {
+	public RemoteObject createRemoteObject(String name) {
 		RemoteObject outline = new RemoteObject(name);
 		data.add(outline);
 		return outline;

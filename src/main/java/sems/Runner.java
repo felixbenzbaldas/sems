@@ -15,6 +15,8 @@ public class Runner {
 		Note source = app.createNote("note1");
 		Note target = app.createNote("note2");
 		app.createAssociation(source, target);
+		RemoteObject remoteObject = app.createRemoteObject("file:test/remote/object");
+		app.createReference(source, remoteObject);
 		printAllNotes();
 		app.save();
 	}

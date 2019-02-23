@@ -3,8 +3,9 @@ package sems;
 import java.util.LinkedList;
 import java.util.List;
 
-public class RemoteObject implements MyObject {
+public class RemoteObject implements MyObject{
 
+	private static final long serialVersionUID = 1L;
 	private String address;
 	
 	public RemoteObject(String address) {
@@ -24,5 +25,10 @@ public class RemoteObject implements MyObject {
 	@Override
 	public List<MyObject> getAllRelationships() {
 		return new LinkedList<>();
+	}
+	
+	@Override
+	public String toString() {
+		return "RemoteObject with address = " + address;
 	}
 }
