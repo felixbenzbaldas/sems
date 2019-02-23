@@ -4,3 +4,4 @@
 .classpath
 /src/test/resources/testData/
 testFile.ser
+src/test/resources/test.txt

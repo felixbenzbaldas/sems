@@ -4,7 +4,10 @@ import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.LinkedList;
 
 import org.junit.Test;
@@ -89,4 +92,10 @@ public class TestApp {
 		assertThat(app.getAllObjects(), hasItems(remoteObject));
 	}
 	
+	@Test
+	public void createAFile() throws IOException {
+		File file = new File("src/test/resources/test.txt");
+		file.createNewFile();
+		assertTrue(file.exists());
+	}
 }
