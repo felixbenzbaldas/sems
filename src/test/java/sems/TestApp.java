@@ -1,13 +1,14 @@
 package sems;
 
 import static org.hamcrest.CoreMatchers.hasItems;
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
 import java.util.LinkedList;
 
 import org.junit.Test;
@@ -96,6 +97,10 @@ public class TestApp {
 	public void createAFile() throws IOException {
 		File file = new File("src/test/resources/test.txt");
 		file.createNewFile();
-		assertTrue(file.exists());
+		try (PrintWriter out = new PrintWriter(file)) {
+		    out.println("test");
+		}
+		String read = new String(Files.readAllBytes(file.toPath()));
+		assertThat(read.substring(0, 4), is("test"));
 	}
 }
