@@ -20,7 +20,7 @@ public class RemoteObject implements MyObject{
 			File file = new File(address.substring(5));
 			if (file.exists()) {
 				try {
-					return App.readFromFile(file.getAbsolutePath());
+					return toString() + " ; content = " + App.readFromFile(file.getAbsolutePath());
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
