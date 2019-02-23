@@ -42,7 +42,7 @@ public class TestApp {
 	@Test
 	public void testDeleteNote() {
 		Note note = app.createNote("toDelete");
-		app.deleteNote(note);
+		app.deleteObject(note);
 		assertThat(app.getAllObjects(), not(hasItems(note)));
 	}
 	

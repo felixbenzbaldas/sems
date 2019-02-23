@@ -18,11 +18,11 @@ public class Runner {
 		App.writeToFile("test.txt", "test");
 		RemoteObject remoteObject = app.createRemoteObject("file:test.txt");
 		app.createReference(source, remoteObject);
-		printAllNotes();
+		printAllObjects();
 		app.save();
 	}
 	
-	private void printAllNotes() {
+	private void printAllObjects() {
 		app.getAllObjects().stream().forEach(note -> System.out.println((note.toStringBig())));
 	}
 }

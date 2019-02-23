@@ -60,7 +60,7 @@ public class App {
 		return noteObject;
 	}
 
-	public void deleteNote(Note note) {
+	public void deleteObject(MyObject note) {
 		data.remove(note);
 	}
 
