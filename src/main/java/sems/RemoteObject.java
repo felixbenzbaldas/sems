@@ -1,5 +1,6 @@
 package sems;
 
+import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,6 +15,13 @@ public class RemoteObject implements MyObject{
 
 	@Override
 	public String toStringBig() {
+		if (address.startsWith("file:")) {
+			File file = new File(address.substring(5));
+			if (file.exists()) {
+			} else {
+				return "RemoteObject - object doen't exist!";
+			}
+		}
 		return this.toString();
 	}
 
