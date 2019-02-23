@@ -69,8 +69,8 @@ public class App {
 		this.data.remove(association);
 	}
 
-	public Outline createOutline(String name) {
-		Outline outline = new Outline(name);
+	public RemoteObject createOutline(String name) {
+		RemoteObject outline = new RemoteObject(name);
 		data.add(outline);
 		return outline;
 	}

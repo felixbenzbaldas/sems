@@ -85,20 +85,20 @@ public class TestApp {
 	
 	@Test
 	public void testCanCreateOutline() {
-		Outline outline = app.createOutline("testOutline");
+		RemoteObject outline = app.createOutline("testOutline");
 		assertThat(app.getAllObjects(), hasItems(outline));
 	}
 	
 	@Test
 	public void testOutlineName() {
-		Outline outline = app.createOutline("testOutline");
-		assertThat(outline.getName(), is("testOutline"));
+		RemoteObject outline = app.createOutline("testOutline");
+		assertThat(outline.getAddress(), is("testOutline"));
 	}
 	
 	@Test
 	public void testAssocationToOutline() {
 		Note source = app.createNote("source");
-		Outline target = app.createOutline("outline");
+		RemoteObject target = app.createOutline("outline");
 		Association association = app.createAssociation(source, target);
 		assertThat(target.getAllRelationships(), hasItems(association));
 	}
