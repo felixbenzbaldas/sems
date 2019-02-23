@@ -2,6 +2,7 @@ package sems;
 
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.assertThat;
 
@@ -99,7 +100,7 @@ public class TestApp {
 		String path = "src/test/resources/test.txt";
 		writeToFile(path, "test");
 		String read = readFromFile(path);
-		assertThat(read.substring(0, 4), is("test"));
+		assertThat(read, containsString("test"));
 	}
 	
 	private static void writeToFile(String path, String string) throws IOException {
