@@ -1,13 +1,30 @@
 package sems;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.List;
 
 public class App {
+	
+	public static void writeToFile(String path, String string) throws IOException {
+		File file = new File(path);
+		file.createNewFile();
+		try (PrintWriter out = new PrintWriter(file)) {
+		    out.println(string);
+		}
+	}
+	
+	public static String readFromFile(String path) throws IOException {
+		return new String(Files.readAllBytes(Paths.get(path)));
+	}
 
 	private List<MyObject> data = new LinkedList<MyObject>();
 

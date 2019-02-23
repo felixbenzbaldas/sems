@@ -98,20 +98,17 @@ public class TestApp {
 	@Test
 	public void testReadAndWriteFile() throws IOException {
 		String path = "src/test/resources/test.txt";
-		writeToFile(path, "test");
-		String read = readFromFile(path);
+		App.writeToFile(path, "test");
+		String read = App.readFromFile(path);
 		assertThat(read, containsString("test"));
 	}
 	
-	private static void writeToFile(String path, String string) throws IOException {
-		File file = new File(path);
-		file.createNewFile();
-		try (PrintWriter out = new PrintWriter(file)) {
-		    out.println(string);
-		}
-	}
-	
-	private static String readFromFile(String path) throws IOException {
-		return new String(Files.readAllBytes(Paths.get(path)));
+	@Test
+	public void testReadAndWriteFile_withRemoteObject() throws IOException {
+		String path = "src/test/resources/test.txt";
+		App.writeToFile(path, "test");
+		RemoteObject remoteObject = app.createRemoteObject("file:" + path);
+		String read = remoteObject.toStringBig(); 
+		assertThat(read, containsString("test"));
 	}
 }
